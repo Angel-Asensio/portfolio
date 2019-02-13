@@ -8,6 +8,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.TreeMap;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import yahoofinance.Stock;
@@ -16,6 +18,8 @@ import yahoofinance.YahooFinance;
 
 @SpringBootApplication
 public class PortfolioApplication {
+
+    private static final Log LOG = LogFactory.getLog(PortfolioApplication.class);
 
 	public static void main(String[] args) throws IOException {
         simplePortfolioGenerator();
@@ -223,9 +227,9 @@ public class PortfolioApplication {
 
         stocks.forEach((k, v) -> filterByPER(priceEarningsRatioLimit, v, portfolio));
 
-        System.out.println("--------------------------------------------------");
-        System.out.println("Portfolio size: " + portfolio.size() + " positions");
-        System.out.println("--------------------------------------------------");
+        LOG.info("--------------------------------------------------");
+        LOG.info("Portfolio size: " + portfolio.size() + " positions");
+        LOG.info("--------------------------------------------------");
         portfolio.forEach(PortfolioApplication::printStockInfo);
     }
 
