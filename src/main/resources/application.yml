@@ -1,0 +1,12 @@
+logging:
+  file: application.log
+  level:
+    de:
+      angelasensio:
+        morningstar: DEBUG
+    org: ERROR
+    yahoofinance:
+      utils: ERROR
+  pattern:
+    console: '%clr(%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n){yellow}'
+    file: '%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n'
